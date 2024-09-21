@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        details {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px;
+        }
+
+        summary {
+            cursor: pointer;
+        }
+
+        summary::before {
+            content: "+";
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        details[open] summary::before {
+            content: "-";
+        }
+    </style>
+</head>
+
+<body>
+    <details>
+        <summary>Description</summary>
+        <p>This is the description paragraph.</p>
+    </details>
+</body>
+
+</html>

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Three Grids</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .bar1 {
+            position: relative;
+            height: 30px;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .bar1 span {
+            position: absolute;
+            text-align: center;
+            color: white;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+            animation: changeText 4s infinite;
+        }
+
+        .bar1 .text1 {
+            animation-delay: 0s;
+        }
+
+        .bar1 .text2 {
+            opacity: 0;
+            animation-delay: 2s;
+        }
+
+        @keyframes changeText {
+
+            0%,
+            25% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .navbar {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            top: 0px;
+            height: 50px;
+
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            margin-left: 30px;
+        }
+
+        .menu-icon span {
+            display: block;
+            height: 2px;
+            background-color: #000000;
+            border-radius: 2px;
+        }
+
+        .navbar .logo {
+            object-fit: cover;
+            overflow: hidden;
+            left: 20px;
+            height: 30px;
+            width: 150px;
+            margin-left: 21%;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #010101;
+            text-decoration: none;
+            padding: 2px 4px;
+            transition: background-color 0.3s;
+        }
+
+        /* Container for the three grids */
+        .container {
+
+            display: flex;
+            height: 100vh;
+        }
+
+        /* General grid styling */
+        .grid {
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* First Grid (20% width) */
+        .grid-1 {
+            width: 15%;
+        }
+
+        /* Second Grid (40% width) */
+        .grid-2 {
+            width: 45%;
+
+        }
+
+        /* Third Grid (40% width) */
+        .grid-3 {
+            width: 40%;
+        }
+
+        /* Inner container for positioning */
+        .inner-container {
+            top: 40px;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* Allows you to use absolute positioning inside */
+        }
+
+        .s-img-1 {
+            position: absolute;
+            top: 0;
+            left: 80px;
+            width: 56px;
+            height: 84px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .s-img-2 {
+            position: absolute;
+            top: 94px;
+            left: 80px;
+            width: 56px;
+            height: 84px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .s-img-3 {
+            position: absolute;
+            top: 188px;
+            left: 80px;
+            width: 56px;
+            height: 84px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .s-img-4 {
+            position: absolute;
+            top: 282px;
+            left: 80px;
+            width: 56px;
+            height: 84px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .inner-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        .b-img-1 {
+            position: absolute;
+            top: 0px;
+            left: 50px;
+            width: 500px;
+            height: 700px;
+            object-fit: cover;
+        }
+
+        .b-img-2 {
+            position: absolute;
+            top: 720px;
+            left: 50px;
+            width: 500px;
+            height: 700px;
+            object-fit: cover;
+        }
+
+        .b-img-3 {
+            position: absolute;
+            top: 1440px;
+            left: 50px;
+            width: 500px;
+            height: 700px;
+            object-fit: cover;
+        }
+
+        .b-img-4 {
+            position: absolute;
+            top: 2160px;
+            left: 50px;
+            width: 500px;
+            height: 700px;
+            object-fit: cover;
+        }
+
+        .par-1 {
+            position: absolute;
+            width: 450px;
+            height: 130px;
+            left: 0px;
+            font-size: 24px;
+        }
+
+        #para-1 {
+            color: grey;
+        }
+
+        change {
+            color: black;
+        }
+
+        .par-2 {
+            position: absolute;
+            top: 160px;
+            font-size: 24px;
+        }
+
+        .buttons {
+            position: absolute;
+            top: 200px;
+            width: 320px;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-1 {
+            background-color: white;
+            color: black;
+            width: 150px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .btn-2 {
+            background-color: white;
+            color: black;
+            width: 150px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .par-3 {
+            position: absolute;
+            top: 250px;
+            font-size: 24px;
+        }
+
+        .buttonss {
+            position: absolute;
+            top: 290px;
+            width: 320px;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .butn-1 {
+            background-color: white;
+            color: black;
+            width: 150px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .cart-btn {
+            position: absolute;
+            top: 380px;
+            height: 40px;
+            width: 400px;
+        }
+
+        .cart-button {
+            background-color: black;
+            color: white;
+            width: 430px;
+            height: 50px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .cart-button:hover {
+            background-color: transparent;
+            color: black;
+            transition: ease-in-out 0.2s;
+        }
+
+        .one {
+            position: absolute;
+            padding: 10px;
+            top: 450px;
+            width: 409px;
+            background-color: black;
+            color: white;
+            z-index: 100;
+        }
+
+        .sum1 {
+            cursor: pointer;
+            text-align: center;
+
+        }
+
+        .sum1::before {
+            content: "+";
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .one[open] summary::before {
+            content: "-";
+        }
+
+        .des {
+            font-size: ;
+        }
+
+        .second {
+            position: absolute;
+            padding: 10px;
+            top: 490px;
+            width: 409px;
+            background-color: black;
+            color: white;
+            z-index: 99;
+        }
+
+        .sum2 {
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .sum2::before {
+            content: "+";
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .second[open] summary::before {
+            content: "-";
+        }
+
+        .third {
+            position: absolute;
+            padding: 10px;
+            top: 571px;
+            width: 409px;
+            background-color: black;
+            color: white;
+            z-index: 97;
+        }
+
+        .sum3 {
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .sum3::before {
+            content: "+";
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .third[open] summary::before {
+            content: "-";
+        }
+
+        .fourth {
+            position: absolute;
+            padding: 10px;
+            top: 531px;
+            width: 409px;
+            background-color: black;
+            color: white;
+            z-index: 98;
+        }
+
+        .sum4 {
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .sum4::before {
+            content: "+";
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .fourth[open] summary::before {
+            content: "-";
+        }
+
+        .fifth {
+            position: absolute;
+            padding: 10px;
+            top: 611px;
+            width: 409px;
+            background-color: black;
+            color: white;
+            z-index: 96;
+        }
+
+        .sum5 {
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .sum5::before {
+            content: "+";
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .fifth[open] summary::before {
+            content: "-";
+        }
+
+        .container-2 {
+            position: relative;
+            top: 2200px;
+            height: 750px;
+        }
+
+        .heading {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .center-container {
+            position: relative;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .grid-container {
+            position: absolute;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            height: 400px;
+            width: 80%;
+            top: 20px;
+            width: 1150px;
+            height: 490px;
+        }
+
+        .grid-item {
+            overflow: hidden;
+
+            height: auto;
+            width: auto;
+            text-align: center;
+            font-size: 25px;
+            border: 2px solid black;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: ease-in-out 3s;
+        }
+
+        .fimg {
+            opacity: 1;
+        }
+
+        .simg {
+            border: 20px solid black;
+            opacity: 1;
+        }
+
+        .grid-item img:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+
+        .footer {
+            position: relative;
+            top: 500px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            width: 100%;
+            height: 200px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Grid layout for footer */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* Creates 4 equal columns */
+            gap: 50px;
+            /* Space between the grid items */
+        }
+
+        /* Footer grid items */
+        .footer-item {
+            padding: 10px;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bar1">
+        <span class="text1">CLICK HERE FOR: <u>Dispatch Timeline</u></span>
+        <span class="text2">FOR INTERNATIONAL WEBSITE VISIT WWW.BAROQUE.COM.PK</span>
+    </div>
+    <nav class="navbar">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <img src="https://baroque.pk/cdn/shop/files/LOGO_PNG_V01.png?v=1689675712&width=420" alt="" class="logo">
+        <ul>
+            <li><a href="#">Pakistan</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <!-- First Grid (20% width) -->
+        <div class="grid grid-1">
+            <div class="inner-container">
+                <div class="s-img-1"><img
+                        src="https://baroque.pk/cdn/shop/files/21_54d03c3c-1277-43da-bd84-e9decf0d19be.jpg?v=1725624149&width=56"
+                        alt="" class="image-1"></div>
+                <div class="s-img-2"><img
+                        src="https://baroque.pk/cdn/shop/files/24_d8ca67ea-d0ee-48da-95db-a57ed8b3055f.jpg?v=1725624149&width=56"
+                        alt="" class="image-2"></div>
+                <div class="s-img-3"><img
+                        src="https://baroque.pk/cdn/shop/files/22_d64d934d-d740-42d2-a2bf-9d7ae7b29b5c.jpg?v=1725624149&width=56"
+                        alt="" class="image-3"></div>
+                <div class="s-img-4"><img
+                        src="https://baroque.pk/cdn/shop/files/20_9992c470-9aa1-48ce-9c38-fa0bc2ed1e1f.jpg?v=1725624149&width=56"
+                        alt="" class="image-4"></div>
+            </div>
+        </div>
+
+        <!-- Second Grid (40% width) -->
+        <div class="grid grid-2">
+            <div class="inner-container">
+                <div class="b-img-1"><img
+                        src="https://baroque.pk/cdn/shop/files/21_54d03c3c-1277-43da-bd84-e9decf0d19be.jpg?v=1725624149&width=1000"
+                        alt="" class="img-1"></div>
+                <div class="b-img-2"><img
+                        src="https://baroque.pk/cdn/shop/files/24_d8ca67ea-d0ee-48da-95db-a57ed8b3055f.jpg?v=1725624149&width=1000"
+                        alt="" class="img-2"></div>
+                <div class="b-img-3"><img
+                        src="https://baroque.pk/cdn/shop/files/22_d64d934d-d740-42d2-a2bf-9d7ae7b29b5c.jpg?v=1725624149&width=1000"
+                        alt="" class="img-3"></div>
+                <div class="b-img-4"><img
+                        src="https://baroque.pk/cdn/shop/files/20_9992c470-9aa1-48ce-9c38-fa0bc2ed1e1f.jpg?v=1725624149&width=1000"
+                        alt="" class="img-4"></div>
+            </div>
+        </div>
+
+        <!-- Third Grid (40% width) -->
+        <div class="grid grid-3">
+            <div class="inner-container">
+                <div class="par-1">
+                    <p id="para-1">EMBROIDERED PRINTED LAWN UF-711<br>
+                        <change>PKR 8,990.00</change><br>SKU: BQU-UF-D711-00<br>
+                        3 PIECE
+                    </p>
+                    <br>
+                    <hr>
+                </div>
+                <div class="par-2">
+                    <p id="para-2">TYPE:</p>
+                </div>
+                <div class="buttons">
+                    <button class="btn-1">UNSTITCHED</button><button class="btn-2">STITCHED</button>
+                </div>
+                <div class="par-3">
+                    <p id="para-3">SIZE:</p>
+                </div>
+                <div class="buttonss">
+                    <button class="butn-1">DEFAULT</button>
+                </div>
+                <div class="cart-btn">
+                    <button class="cart-button">ADD TO CART</button>
+                </div>
+                <details class="one">
+                    <summary class="sum1">DESCRIPTION</summary>
+                    <p class="des">This outfit features a digital printed lawn shirt and trousers, showcasing
+                        intricate
+                        embroidery on the neckline patch and decorative borders on the front, back, and sleeves. The
+                        sleeves are further enhanced with embroidery and digital printing on organza. The look is
+                        completed with a beautifully embroidered digital printed dupatta.<br><br>
+
+                    <h3>Styling Tip</h3><br>
+
+                    For a sophisticated finish, accessorize with understated jewellery and elegant footwear to
+                    let
+                    the detailed embroidery and prints shine. Perfect for special occasions or festive events,
+                    this
+                    ensemble offers a seamless blend of traditional elegance and modern style.</p>
+                </details>
+                <details class="second">
+                    <summary class="sum2">PRODUCT DETAILS</summary>
+                    <p class="pro">Digital printed lawn shirt & trouser (5 yard)
+                        Embroidered organza neckline patch (1.08 yard)
+                        Embroidered organza front , back & sleeves border (6 yard)
+                        Embroidered organza sleeves border (1.08 yard)
+                        Embroidered digital printed organza dupatta (2.50 yard)</p>
+                </details>
+                <details class="third">
+                    <summary class="sum3">DELIEVERY</summary>
+                    <p class="deliv">Dispatch time for unstitched : Within 1 week
+                        Dispatch time for stitched : Within 3 weeks
+
+                        *Customize stitching : 1 week extra</p>
+                </details>
+                <details class="fourth">
+                    <summary class="sum4">RETURNS AND EXCHANGE</summary>
+                    <p class="return">We offer 10-days exchange policy starting from the date of order delivery.
+
+                        In case of any damaged OR missing item, the concern must be raised within 48 hours to our
+                        customer care team for further assistance, otherwise the complaints cannot be accepted.
+
+                        For additional information and the exchange form click here</p>
+                </details>
+                <details class="fifth">
+                    <summary class="sum5">CARE INSTRUCTION</summary>
+                    <p class="care">Dry clean recommended
+                        Iron the clothes at moderate temperature
+                        Do not use any type of bleach or stain removing chemicals
+                        Actual color may slightly vary from the image shown
+                        Unstitched includes fabric only
+                        Slight variation in colour and embellishments may occur after restocking of specific
+                        articles
+                        Custom length or any other changing which varies from our standard size chart comes under
+                        customized stitching for stitched articles.
+                        Pret/Ready to wear articles can not be customized
+                        All the sleeveless dresses are stitched with sleeves by default until sleeveless is
+                        requested by
+                        the customer. Straight sleeves are attached.</p>
+                </details>
+            </div>
+        </div>
+    </div>
+    <div class="container-2">
+        <br>
+        <hr><br><br><br><br>
+        <div class="heading">
+            <p><u>RELATED PRODUCTS</u></p>
+        </div>
+        <div class="center-container">
+            <div class="grid-container">
+                <div class="grid-item"><img class="fimg"
+                        src="https://baroque.pk/cdn/shop/files/130_78dff0d8-b178-4b78-ae35-ef72e9b83aec.jpg?v=1726813942&width=1000"
+                        alt=""><img class="simg"
+                        src="https://baroque.pk/cdn/shop/files/125_339099ae-8c70-46f8-9089-6bdba8ddea36.jpg?v=1726813941&width=1000"
+                        alt=""></div>
+                <div class="grid-item"><img class="fimg"
+                        src="https://baroque.pk/cdn/shop/files/120_c2241612-ebb8-4d78-b959-a72330924dcb.jpg?v=1726813941&width=1000"
+                        alt=""><img class="simg"
+                        src="https://baroque.pk/cdn/shop/files/127_224f36ee-b14e-47b0-af7e-e33a7494c0ab.jpg?v=1726813941&width=1000"
+                        alt=""></div>
+                <div class="grid-item"><img class="fimg"
+                        src="https://baroque.pk/cdn/shop/files/124_b6b139a9-5a25-4e7f-8c9c-d799c755ee9d.jpg?v=1726813941&width=1000"
+                        alt=""><img class="simg"
+                        src="https://baroque.pk/cdn/shop/files/129_c993a546-e2f8-4fcf-8d32-543dd5e49c7d.jpg?v=1726813941&width=1000"
+                        alt=""></div>
+                <div class="grid-item"><img class="fimg"
+                        src="https://baroque.pk/cdn/shop/files/123_1ac558ff-ecd3-4dd8-a3d0-060359c2cc4e.jpg?v=1726813941&width=1000"
+                        alt=""><img class="simg"
+                        src="https://baroque.pk/cdn/shop/files/126_0d9a3c70-1ded-4eaf-ae13-2eb1cc983a1d.jpg?v=1726813941&width=1000"
+                        alt="">
+                </div>
+            </div>
+            <footer class="footer">
+                <hr>
+                <div class="center-container-4">
+                    <div class="footer-grid">
+                        <div class="footer-item">
+                            <h3>ABOUT</h3>
+                            <p><br>Who We Are<br>
+                                Our Responsibility<br>
+                                Service We Provide<br>
+                                Careers<br>
+                                Legal</p>
+                        </div>
+                        <div class="footer-item">
+                            <h3>SERVICES</h3>
+                            <p><br>Contact Us<br>
+                                Dispatch Timeline<br>
+                                Email: ammarashfaq314@gmail.com<br>
+                                Call: +92 318 047 8896<br>
+                                WhatsApp: +92 318 0478896</p>
+                        </div>
+                        <div class="footer-item">
+                            <h3>POLICIES</h3>
+                            <p><br>Privacy Policy<br>
+                                Refund Policy<br>
+                                Shipping Policy<br>
+                                Terms of Service<br>
+                                Exchange Information
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+</body>
+
+</html>
